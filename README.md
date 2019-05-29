@@ -1,13 +1,13 @@
-# vca-widget-base
+# vca-upsweep
 
-[![npm](https://img.shields.io/npm/v/vca-widget-base.svg)](https://www.npmjs.com/package/vca-widget-base) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
+[![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
-> Implements different visualizations for a user.
+> Implements comment section.
 
 ## Installation
 
 ```bash
-npm install --save vca-widget-base
+npm install --save vca-upsweep
 ```
 
 ## Usage
@@ -16,12 +16,12 @@ npm install --save vca-widget-base
 
 ```js
 import Vue from 'vue'
-import { VcAFrame, VcAColumn, VcABox, VcAInfoBox } from 'vca-widget-base'
-import 'vca-widget-base/dist/vca-widget-base.css'
+import { UpsweepView } from 'vca-upsweep'
+import 'vca-upsweep/dist/vca-upsweep.css'
 
 export default {
   name: 'App',
-  components: { VcAFrame, VcAColumn, VcABox, VcAInfoBox }
+  components: { UpsweepView }
 }
 
 ```
@@ -30,33 +30,9 @@ Inside your template:
 ```xml
 <template>
   <div id="app">
-    <VcAFrame title="VcA Page">
-        <VcAColumn size="90%">
-            <VcABox title="VcA Box 1" :first="true">Test Box 1</VcABox>
-            <VcABox title="VcA Box 2">Test Box 2</VcABox>
-        </VcAColumn>
-        <VcAColumn>
-            <VcABox title="VcA Box 3" :first="true">Test Box 3</VcABox>
-            <VcABox title="VcA Box 4">
-                <VcAInfoBox>Test Box 4</VcAInfoBox>
-            </VcABox>
-        </VcAColumn>
-    </VcAFrame>
+    <UpsweepView></UpsweepView>
   </div>
 </template>
-```
-
-### Browser
-
-```html
-<!-- Include after Vue -->
-<!-- Local files -->
-<link rel="stylesheet" href="vca-widget-base/dist/vca-widget-base.css"></link>
-<script src="vca-widget-base/dist/vca-widget-base.js"></script>
-
-<!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/vca-widget-base/dist/vca-widget-base.css"></link>
-<script src="https://unpkg.com/vca-widget-base"></script>
 ```
 
 ## Development
