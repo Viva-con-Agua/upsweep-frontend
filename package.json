@@ -1,16 +1,16 @@
 {
-  "name": "vca-widget-base",
-  "version": "0.1.3",
+  "name": "vca-upsweep",
+  "version": "0.0.1",
   "description": "Implements different base elements for Viva con Aguas Pool².",
-  "author": "Johann Sell",
+  "author": "Bilal Bellafkir",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name vca-widget-base src/lib.js",
+    "lib": "vue-cli-service build --target lib --name vca-upsweep src/lib.js",
     "lint": "vue-cli-service lint",
     "prepublish": "npm run lib"
   },
-  "main": "./dist/vca-widget-base.common.js",
+  "main": "./dist/vca-upsweep.common.js",
   "files": [
     "dist/*",
     "src/*",
@@ -36,16 +36,21 @@
   },
   "dependencies": {
     "ajv": "^6.7.0",
-    "element-ui": "^2.4.11"
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.11",
+    "vue": "^2.6.10",
+    "vue-i18n": "^8.11.2",
+    "vue2-timeago": "^1.1.3",
+    "vuex": "^3.1.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Viva-con-Agua/vca-widget-base"
+    "url": "git+https://github.com/Viva-con-Agua/upsweep-frontend"
   },
   "bugs": {
-    "url": "https://github.com/Viva-con-Agua/vca-widget-base/issues"
+    "url": "https://github.com/Viva-con-Agua/upsweep-frontend"
   },
-  "homepage": "https://github.com/Viva-con-Agua/vca-widget-base#readme",
+  "homepage": "https://github.com/Viva-con-Agua/upsweep-frontend#readme",
   "license": {
     "type": "AGPL-3.0-or-later",
     "url": "https://www.gnu.org/licenses/agpl.txt"

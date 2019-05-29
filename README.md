@@ -30,7 +30,7 @@ Inside your template:
 ```xml
 <template>
   <div id="app">
-    <UpsweepView></UpsweepView>
+    <UpsweepView poolEventId=""></UpsweepView>
   </div>
 </template>
 ```
