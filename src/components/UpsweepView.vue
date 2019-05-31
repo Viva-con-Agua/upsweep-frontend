@@ -53,15 +53,24 @@ export default {
             queryString.stringify({
               client_id: "comment-backend",
               response_type: "code",
-              state: "http://localhost/api/currentsession",
+              state: "http://localhost/api/rendersession",
               redirect_uri: "http://localhost/api/oauth/code"
             }),
           "Authentication",
           "width=400, height=400, position=center"
         );
         setTimeout(() => {
+          axios
+            .get("http://localhost/api/currentsession")
+            .then(session => {
+              this.currentSession = session.data;
+              location.reload();
+            })
+            .catch((err)=>{
+              console.log(err)
+            });
           oauthWindow.close();
-        }, 10000);
+        }, 1000);
       });
   }
 };
