@@ -30,6 +30,10 @@
 </template>
 
 <script>
+/* eslint-disable */
+var UPSWEEP_HOST = 'localhost';
+var UPSWEEP_PORT = ':8081';
+
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
@@ -38,12 +42,12 @@ export default {
   props: ["comment"],
   data() {
     return {
-      profileId: "5cd29cac64d95068c5f5002c",
+      profileId: "",
       vote: {
         commentId: "",
         _creator: {
-          id: "5cd29cac64d95068c5f5002c",
-          fullName: "John Doe"
+          id: "",
+          fullName: ""
         }
       }
     };
@@ -52,7 +56,8 @@ export default {
     likeButtonHandler(event) {
       this.vote.commentId = event.currentTarget.id;
       axios
-        .post("http://localhost/api/vote", this.vote)
+        //.post("/api/vote", this.vote)
+        .post(UPSWEEP_HOST + UPSWEEP_PORT + '/api/vote', this.vote)
         .then(resp => {
           /*this.$store.dispatch(
             "GET_COMMENTS_BY_POOLEVENT_ID",
@@ -65,7 +70,8 @@ export default {
       let voteId = this.findCurrentUserVoteId(comment._votes);
       if (voteId) {
         axios
-          .delete("http://localhost/api/vote/" + voteId)
+          //.delete("/api/vote/" + voteId)
+          .delete(UPSWEEP_HOST + UPSWEEP_PORT + '/api/vote/')
           .then(resp => {
             /*this.$store.dispatch(
               "GET_COMMENTS_BY_POOLEVENT_ID",

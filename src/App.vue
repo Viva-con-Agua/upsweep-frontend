@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <UpsweepView poolEventId="5cd29cda64d95068c5f5002d"></UpsweepView>
+    <UpsweepView poolEventId="test"></UpsweepView>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+
 import VcABox from './components/VcABox.vue'
 import VcAColumn from './components/VcAColumn.vue'
 import VcAFrame from './components/VcAFrame.vue'

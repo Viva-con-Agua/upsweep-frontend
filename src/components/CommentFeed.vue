@@ -51,6 +51,10 @@
 </template>
 
 <script>
+/* eslint-disable */
+var UPSWEEP_HOST = 'localhost';
+var UPSWEEP_PORT = ':8081';
+
 import VoteForm from "./VoteForm";
 import TimeAgo from "vue2-timeago";
 import axios from "axios";
@@ -81,17 +85,18 @@ export default {
       tooltip: true,
       user: undefined,
       vote: {
-        commentId: "",
+        commentId: '1',
         _creator: {
-          id: "",
-          fullName: ""
+          id: '1',
+          fullName: '1'
         }
       }
     };
   },
   mounted() {
     axios
-      .get("http://localhost/api/comment/" + this.poolEventId)
+      .get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/comment/' + this.poolEventId)
+      //.get("/api/comment/" + this.poolEventId)
       .then(resp => {
         this.comments = resp.data.data.comments
       })

@@ -39,58 +39,65 @@
 </template>
 
 <script>
-import Vue from "vue";
-import elementui from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
-import Vuex from "vuex";
-import axios from "axios";
+/* eslint-disable */
+  import Vue from 'vue'
+import elementui from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import Vuex from 'vuex'
+import axios from 'axios'
+
+var UPSWEEP_HOST = 'localhost';
+var UPSWEEP_PORT = ':8081';
+// var UPSWEEP_MONGODB_URL = process.env.VUE_APP_UPSWEEP_MONGODB_URL;
+// var UPSWEEP_PORT = process.env.VUE_APP_UPSWEEP_PORT;
 
 axios.defaults.withCredentials = true;
-
-
 
 Vue.use(Vuex);
 Vue.use(elementui);
 
 export default {
-  name: "CommentForm",
-  props: ["poolEventId"],
-  data() {
+  name: 'CommentForm',
+//  props: ['poolEventId'],
+  props: ['poolEventId'],
+  data () {
     return {
       newComment: {
-        text: "",
-        _poolEvent: "",
+        text: '',
+        _poolEvent: '',
         _creator: {
-          fullName: "",
-          id: ""
+          fullName: '',
+          id: ''
         }
       },
-      currentSession: ""
+      currentSession: ''
     };
   },
-  mounted() {
+  mounted () {
     axios
-      .get("http://localhost/api/currentsession")
+      //.get('/api/currentSession')
+      .get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession')
       .then(resp => {
         this.currentSession = resp.data.profile;
       })
       .catch(err => {
-       
       });
     this.newComment._poolEvent = this.poolEventId;
   },
   methods: {
-    submit() {
+    submit () {
       this.newComment._creator.fullName = this.currentSession.profiles[0].supporter.fullName;
       this.newComment._creator.id = this.currentSession.id;
       axios
-        .post("http://localhost/api/comment", this.newComment)
+       //.post('/api/comment', this.newComment,
+        .post(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession', this.newComment
+    )
         .then(resp => {
           this.comments.unshift(resp.data.data);
         })
         .catch(err => {});
-
-      /*this.$store.dispatch("POST_COMMENT", this.newComment);
+      /*
+      this.$store.dispatch("POST_COMMENT", this.newComment);
       setTimeout(() => {
         this.$store.dispatch(
           "GET_COMMENTS_BY_POOLEVENT_ID",
@@ -99,8 +106,7 @@ export default {
         this.newComment.text = "";
       }, 100);*/
     }
-  },
-  computed: {}
+  }
 };
 </script>
 
