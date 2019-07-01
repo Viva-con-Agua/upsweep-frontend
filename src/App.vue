@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <UpsweepView poolEventId="test"></UpsweepView>
+    <UpsweepView poolEventId=""></UpsweepView>
   </div>
 </template>
 

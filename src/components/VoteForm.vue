@@ -31,8 +31,8 @@
 
 <script>
 /* eslint-disable */
-var UPSWEEP_HOST = 'localhost';
-var UPSWEEP_PORT = ':8081';
+//var UPSWEEP_HOST = 'localhost';
+//var UPSWEEP_PORT = ':8081';
 
 import axios from "axios";
 axios.defaults.withCredentials = true;
@@ -56,8 +56,8 @@ export default {
     likeButtonHandler(event) {
       this.vote.commentId = event.currentTarget.id;
       axios
-        //.post("/api/vote", this.vote)
-        .post(UPSWEEP_HOST + UPSWEEP_PORT + '/api/vote', this.vote)
+        .post("/backend/upsweep/vote", this.vote)
+        //.post(UPSWEEP_HOST + UPSWEEP_PORT + 'api/upsweep/vote', this.vote)
         .then(resp => {
           /*this.$store.dispatch(
             "GET_COMMENTS_BY_POOLEVENT_ID",
@@ -70,8 +70,8 @@ export default {
       let voteId = this.findCurrentUserVoteId(comment._votes);
       if (voteId) {
         axios
-          //.delete("/api/vote/" + voteId)
-          .delete(UPSWEEP_HOST + UPSWEEP_PORT + '/api/vote/')
+          .delete("/backend/upsweep/vote/" + voteId)
+          //.delete(UPSWEEP_HOST + UPSWEEP_PORT + 'api/vote/')
           .then(resp => {
             /*this.$store.dispatch(
               "GET_COMMENTS_BY_POOLEVENT_ID",

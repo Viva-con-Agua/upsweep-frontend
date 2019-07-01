@@ -46,8 +46,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-var UPSWEEP_HOST = 'localhost';
-var UPSWEEP_PORT = ':8081';
+//var UPSWEEP_HOST = 'localhost';
+//var UPSWEEP_PORT = ':8081';
 // var UPSWEEP_MONGODB_URL = process.env.VUE_APP_UPSWEEP_MONGODB_URL;
 // var UPSWEEP_PORT = process.env.VUE_APP_UPSWEEP_PORT;
 
@@ -75,8 +75,8 @@ export default {
   },
   mounted () {
     axios
-      //.get('/api/currentSession')
-      .get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession')
+      .get('/backend/upsweep/currentSession')
+      //.get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession')
       .then(resp => {
         this.currentSession = resp.data.profile;
       })
@@ -89,8 +89,8 @@ export default {
       this.newComment._creator.fullName = this.currentSession.profiles[0].supporter.fullName;
       this.newComment._creator.id = this.currentSession.id;
       axios
-       //.post('/api/comment', this.newComment,
-        .post(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession', this.newComment
+       .post('/backend/upsweep/comment', this.newComment,
+        //.post(UPSWEEP_HOST + UPSWEEP_PORT + '/api/currentSession', this.newComment
     )
         .then(resp => {
           this.comments.unshift(resp.data.data);

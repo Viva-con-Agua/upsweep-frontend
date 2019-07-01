@@ -23,8 +23,8 @@ import Vuex from "vuex";
 import queryString from "query-string";
 import axios from "axios";
 
- var UPSWEEP_HOST = 'localhost';
- var UPSWEEP_PORT = ':8081';
+ //var UPSWEEP_HOST = 'localhost';
+ //var UPSWEEP_PORT = ':8081';
 // var UPSWEEP_MONGODB_URL = process.env.VUE_APP_UPSWEEP_MONGODB_URL;
 // var UPSWEEP_PORT = process.env.VUE_APP_UPSWEEP_PORT;
 
@@ -56,7 +56,7 @@ export default {
         this.currentSession = session.data;
       })
       .catch(err => {
-        let oauthWindow = window.open('/drops/oauth2/code/get?' +
+        let oauthWindow = window('/drops/oauth2/code/get?' +
           //'http://' + UPSWEEP_MONGODB_URL + '/drops/oauth2/code/get?' +
           queryString.stringify({
               client_id: "comment-backend",

@@ -52,8 +52,8 @@
 
 <script>
 /* eslint-disable */
-var UPSWEEP_HOST = 'localhost';
-var UPSWEEP_PORT = ':8081';
+//var UPSWEEP_HOST = 'localhost';
+//var UPSWEEP_PORT = ':8081';
 
 import VoteForm from "./VoteForm";
 import TimeAgo from "vue2-timeago";
@@ -95,8 +95,8 @@ export default {
   },
   mounted() {
     axios
-      .get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/comment/' + this.poolEventId)
-      //.get("/api/comment/" + this.poolEventId)
+      //.get(UPSWEEP_HOST + UPSWEEP_PORT + '/api/comment/' + this.poolEventId)
+      .get("/backend/upsweep/comment/" + this.poolEventId)
       .then(resp => {
         this.comments = resp.data.data.comments
       })
